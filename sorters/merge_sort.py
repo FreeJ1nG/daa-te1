@@ -1,4 +1,5 @@
 from sys import setrecursionlimit
+from memory_profiler import profile
 from sorters.sorter import Sorter
 
 
@@ -26,6 +27,7 @@ class MergeSort(Sorter):
     for idx in range(l, r + 1):
       self.a[idx] = result[idx - l]
 
+  @profile
   def sort_algorithm(self, l: int, r: int):
     if l >= r:
       return

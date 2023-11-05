@@ -6,11 +6,14 @@ class Sorter(ABC):
   def __init__(self) -> None:
     self.a = []
 
-  def sort(self, a: list[int]):
+  def get_array(self) -> list[int]:
+    return self.a
+
+  def sort(self, a: list[int]) -> float:
     self.a = a
     start_time = time.time()
     self.sort_algorithm(0, len(self.a) - 1)
-    print(f"finished sorting in {time.time() - start_time} seconds")
+    return time.time() - start_time
 
   @abstractmethod
   def sort_algorithm(self, l: int, r: int):

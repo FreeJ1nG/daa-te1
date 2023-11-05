@@ -1,5 +1,10 @@
 from sys import setrecursionlimit
+from memory_profiler import profile
 from sorters.sorter import Sorter
+
+
+def swap_values(a: list[int], i: int, j: int):
+  a[i], a[j] = a[j], a[i]
 
 
 class TwoPivotBlockQuicksort(Sorter):
@@ -7,9 +12,6 @@ class TwoPivotBlockQuicksort(Sorter):
     super().__init__()
     setrecursionlimit(10**7)
     self.B = 128
-
-  def _swap_values(self, i: int, j: int):
-    self.a[i], self.a[j] = self.a[j], self.a[i]
 
   def _double_pivot_block_lomuto(self, a: list[int]):
     n = len(a)
@@ -25,26 +27,28 @@ class TwoPivotBlockQuicksort(Sorter):
         block[num_q] = c
         num_q = num_q + (q >= a[k + c])
       for c in range(num_q):
-        self._swap_values(j + c, k + block[c])
+        swap_values(a, j + c, k + block[c])
       k += t
       for c in range(num_q):
         block[num_p] = c
         num_p = num_p + (p > a[j + c])
       for c in range(num_p):
-        self._swap_values(i, j + block[c])
+        swap_values(a, i, j + block[c])
         i += 1
       j += num_q
       num_p, num_q = 0, 0
-    self._swap_values(0, i - 1)
-    self._swap_values(j, n - 1)
-    return (i - 1, j)
+    swap_values(a, 0, i - 1)
+    swap_values(a, j, n - 1)
+    return (a, i - 1, j)
 
+  @profile
   def sort_algorithm(self, l: int, r: int):
     if l >= r:
       return
     if (self.a[l] > self.a[r]):
-      self._swap_values(l, r)
-    i, j = self._double_pivot_block_lomuto(self.a[l: r + 1])
+      swap_values(self.a, l, r)
+    a, i, j = self._double_pivot_block_lomuto(self.a[l: r + 1])
+    self.a[l: r + 1] = a
     i += l
     j += l
     if l <= i - 1:
