@@ -34,21 +34,21 @@ def generate_case(size: int, type: CaseType) -> list[int]:
   return a
 
 
-write_case_to_file("testcases/small_random.txt",
+write_case_to_file("small_random.txt",
                    generate_case(SMALL_SIZE, CaseType.RANDOM))
-write_case_to_file("testcases/medium_random.txt",
+write_case_to_file("medium_random.txt",
                    generate_case(MEDIUM_SIZE, CaseType.RANDOM))
-write_case_to_file("testcases/large_random.txt",
+write_case_to_file("large_random.txt",
                    generate_case(LARGE_SIZE, CaseType.RANDOM))
-write_case_to_file("testcases/small_sorted.txt",
+write_case_to_file("small_sorted.txt",
                    generate_case(SMALL_SIZE, CaseType.SORTED))
-write_case_to_file("testcases/medium_sorted.txt",
+write_case_to_file("medium_sorted.txt",
                    generate_case(MEDIUM_SIZE, CaseType.SORTED))
-write_case_to_file("testcases/large_sorted.txt",
+write_case_to_file("large_sorted.txt",
                    generate_case(LARGE_SIZE, CaseType.SORTED))
-write_case_to_file("testcases/small_reversed.txt",
+write_case_to_file("small_reversed.txt",
                    generate_case(SMALL_SIZE, CaseType.REVERSED))
-write_case_to_file("testcases/medium_reversed.txt",
+write_case_to_file("medium_reversed.txt",
                    generate_case(MEDIUM_SIZE, CaseType.REVERSED))
-write_case_to_file("testcases/large_reversed.txt",
+write_case_to_file("large_reversed.txt",
                    generate_case(LARGE_SIZE, CaseType.REVERSED))

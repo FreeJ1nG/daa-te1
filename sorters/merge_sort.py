@@ -1,5 +1,5 @@
 from sys import setrecursionlimit
-from sorter import Sorter
+from sorters.sorter import Sorter
 
 
 class MergeSort(Sorter):

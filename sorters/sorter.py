@@ -1,6 +1,5 @@
-from abc import ABC, abstractmethod
-
 import time
+from abc import ABC, abstractmethod
 
 
 class Sorter(ABC):

@@ -1,5 +1,5 @@
-from merge_sort import MergeSort
-from two_pivot_block_quicksort import TwoPivotBlockQuicksort
+from sorters.merge_sort import MergeSort
+from sorters.two_pivot_block_quicksort import TwoPivotBlockQuicksort
 
 
 merge_sort = MergeSort()
@@ -25,5 +25,7 @@ for case_name in case_names:
   a = list(map(int, case.split()))
   print(f"Sorting {case_name} with quick sort ...")
   quick_sort.sort(a)
+  print("======================================================================")
   print(f"Sorting {case_name} with merge sort ...")
   merge_sort.sort(a)
+  print("======================================================================")
